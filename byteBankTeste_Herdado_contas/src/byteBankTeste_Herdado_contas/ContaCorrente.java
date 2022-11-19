@@ -1,6 +1,6 @@
 package byteBankTeste_Herdado_contas;
 
-public class ContaCorrente extends ContaTeste {
+public class ContaCorrente extends ContaTeste implements Tributavel {
 	
 	//construtor especifico:
 	public ContaCorrente(int agencia, int numero) {
@@ -18,6 +18,11 @@ public class ContaCorrente extends ContaTeste {
 	public void deposita(double valor) {
 		super.saldo += valor; // += é a mesma coisa de "this.saldo = this.saldo + valor"
 		
+	}
+
+	@Override
+	public double getValorImposto() {
+		return super.saldo * 0.01;
 	}
 
 }
